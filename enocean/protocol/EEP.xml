@@ -45,11 +45,11 @@
     <profiles func="0x10" description="Mechanical Handle">
       <profile type="0x00" description="Window Handle">
         <data>
-          <enum description="Window handle" shortcut="WIN" offset="2" size="2">
-            <item description="Moved from up to vertical" value="0" />
-            <item description="Moved from vertical to up" value="1" />
-            <item description="Moved from down to vertical" value="2" />
-            <item description="Moved from vertical to down" value="3" />
+          <enum description="Window handle" shortcut="WIN" offset="0" size="4">
+            <item description="Moved from up to vertical" value="12" />
+            <item description="Moved from vertical to up" value="13" />
+            <item description="Moved from down to vertical" value="14" />
+            <item description="Moved from vertical to down" value="15" />
           </enum>
           <status description="T21" shortcut="T21" offset="2" size="1" />
           <status description="NU" shortcut="NU" offset="3" size="1" />
@@ -485,6 +485,10 @@
               <max>40</max>
             </scale>
           </value>
+          <enum description="LRN Bit" shortcut="LRNB" offset="28" size="1">
+            <item description="Teach-in telegram" value="0" />
+            <item description="Data telegram" value="1" />
+          </enum>
         </data>
       </profile>
     </profiles>
