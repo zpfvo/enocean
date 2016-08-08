@@ -264,7 +264,7 @@ class Packet(object):
 
             print(map(hex, data))
             packet.data[1:5] = data
-            print('packet data %r' % packet.data)
+            print('packet data %r' % map(hex, packet.data))
 
             # Parse the built packet, so it corresponds to the received packages
             # For example, stuff like RadioPacket.learn should be set.
