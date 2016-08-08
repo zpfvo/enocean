@@ -250,7 +250,8 @@ class Packet(object):
             #     for digit in range(size):
             #         bitarray[offset + digit] = (value >> (size - digit - 1)) & 0x01 != 0
             #     return bitarray
-            bit_data = to_bitarray([0, 0, 0, 0], width=4 * 8)
+            data = [0, 0, 0, 0]
+            bit_data = to_bitarray(data, width=4 * 8)
             set_bits(0, 6, rorg_func, bit_data)
             set_bits(6, 7, rorg_type, bit_data)
             set_bits(13, 11, rorg_manufacturer, bit_data)
@@ -258,12 +259,11 @@ class Packet(object):
             set_bits(24, 1, 1, bit_data)
 
             # value[byte*8:(byte+1)*8]
-            db3 = from_bitarray(bit_data[0 * 8:(0 + 1) * 8])
-            db2 = from_bitarray(bit_data[1 * 8:(1 + 1) * 8])
-            db1 = from_bitarray(bit_data[2 * 8:(2 + 1) * 8])
-            db0 = from_bitarray(bit_data[3 * 8:(3 + 1) * 8])
-            print(map(hex, [db3, db2, db1, db0]))
-            packet.data[1:5] = [db3, db2, db1, db0]
+            for i, byte in enumerate(data):
+                data[i] = from_bitarray(bit_data[i * 8:(i + 1) * 8])
+
+            print(map(hex, data))
+            packet.data[1:5] = data
             print('packet data %r' % packet.data)
 
             # Parse the built packet, so it corresponds to the received packages
