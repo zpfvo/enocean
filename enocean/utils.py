@@ -22,22 +22,9 @@ def to_bitarray(data, width=8):
     return [True if digit == '1' else False for digit in bin(data)[2:].zfill(width)]
 
 
-def chunk_list(l, n):
-    """Yield successive n-sized chunks from l."""
-    for i in range(0, len(l), n):
-        yield l[i:i + n]
-
-
-def from_bitarray(data, width=8):
+def from_bitarray(data):
     ''' Convert bit array back to integer '''
-    chunklist = list(chunk_list(data, width))
-    intlist = list()
-    for elem in chunklist:
-        intlist.append(int(''.join(['1' if x else '0' for x in elem]), 2))
-    if len(intlist) == 1:
-        return intlist[0]
-    else:
-        return intlist
+    return int(''.join(['1' if x else '0' for x in data]), 2)
 
 
 def to_hex_string(data):

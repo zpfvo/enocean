@@ -6,7 +6,7 @@ from collections import OrderedDict
 import enocean.utils
 from enocean.protocol import crc8
 from enocean.protocol.eep import EEP
-from enocean.protocol.constants import PACKET, RORG, PARSE_RESULT, DB0, DB2, DB3, DB4, DB6
+from enocean.protocol.constants import PACKET, RORG, PARSE_RESULT, DB0, DB1, DB2, DB3, DB4, DB6
 from enocean.utils import to_bitarray, from_bitarray
 
 
@@ -257,8 +257,13 @@ class Packet(object):
             set_bits(13, 11, rorg_manufacturer, bit_data)
             set_bits(24, 1, 1, bit_data)
 
-            print(from_bitarray(bit_data, 8))
-            packet.data[1:5] = from_bitarray(bit_data, 8)
+            # value[byte*8:(byte+1)*8]
+            db3 = from_bitarray(bit_data[0 * 8:(0 + 1) * 8])
+            db2 = from_bitarray(bit_data[1 * 8:(1 + 1) * 8])
+            db1 = from_bitarray(bit_data[2 * 8:(2 + 1) * 8])
+            db0 = from_bitarray(bit_data[3 * 8:(3 + 1) * 8])
+            print(map(hex, [db3, db2, db1, db0]))
+            packet.data[1:5] = [db3, db2, db1, db0]
             print('packet data %r' % packet.data)
 
             # Parse the built packet, so it corresponds to the received packages
@@ -373,7 +378,7 @@ class RadioPacket(Packet):
                     self.rorg_type = enocean.utils.from_bitarray(
                         self._bit_data[DB3.BIT_1:DB2.BIT_2])
                     self.rorg_manufacturer = enocean.utils.from_bitarray(
-                        self._bit_data[DB2.BIT_2:DB0.BIT_7], 11)
+                        self._bit_data[DB2.BIT_2:DB0.BIT_7])
                     self.logger.debug('learn received, EEP detected, RORG: 0x%02X, FUNC: 0x%02X, TYPE: 0x%02X, Manufacturer: 0x%02X' % (
                         self.rorg, self.rorg_func, self.rorg_type, self.rorg_manufacturer))
 
