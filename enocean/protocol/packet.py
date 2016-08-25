@@ -188,7 +188,6 @@ class Packet(object):
             - Do we need to set telegram control bits?
               Might be useful for acting as a repeater?
         '''
-        print('==================')
         if packet_type != PACKET.RADIO:
             # At least for now, only support PACKET.RADIO.
             raise ValueError('Packet type not supported by this function.')
@@ -261,13 +260,10 @@ class Packet(object):
             # value[byte*8:(byte+1)*8]
             for i, byte in enumerate(data):
                 data[i] = from_bitarray(bit_data[i * 8:(i + 1) * 8])
-
-            print(map(hex, data))
             packet.data[1:5] = data
-            print('packet data %r' % map(hex, packet.data))
 
-            # Parse the built packet, so it corresponds to the received packages
-            # For example, stuff like RadioPacket.learn should be set.
+        # Parse the built packet, so it corresponds to the received packages
+        # For example, stuff like RadioPacket.learn should be set.
         packet = Packet.parse_msg(packet.build())[2]
         packet.rorg = rorg
         packet.parse_eep(rorg_func, rorg_type, direction, command)
@@ -361,6 +357,8 @@ class RadioPacket(Packet):
         self.sender = self.data[-5:-1]
         # Default to learn == True, as some devices don't have a learn button
         self.learn = True
+        # Defaults to learn status response, since query triggers an answer
+        self.learn_status = True
 
         self.rorg = self.data[0]
 
@@ -369,6 +367,7 @@ class RadioPacket(Packet):
             self.learn = not self._bit_data[DB0.BIT_3]
         if self.rorg == RORG.BS4:
             self.learn = not self._bit_data[DB0.BIT_3]
+            self.learn_status = self._bit_data[DB0.BIT_4]
             if self.learn:
                 self.contains_eep = self._bit_data[DB0.BIT_7]
                 if self.contains_eep:
