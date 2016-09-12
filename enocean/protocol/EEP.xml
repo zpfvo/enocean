@@ -696,6 +696,30 @@
         </data>
       </profile>
     </profiles>
+    <profiles func="0x3F" description="Universal">
+      <profile type="0x00" description="Radio Link Test (BI-DIR)">
+        <data direction="1">
+          <enum shortcut="LRNB" description="LRN Bit" offset="28" size="2">
+            <item description="Teach-in telegram" value="0" />
+            <item description="Data telegram" value="1" />
+          </enum>
+          <value shortcut="MSGID" description="Message ID" offset="29" size="2" unit="">
+            <range>
+              <min>0</min>
+              <max>15</max>
+            </range>
+          </value>
+        </data>
+        <data direction="2">
+          <enum shortcut="STCNT" description="Sub-Telegram Counter" offset="0" size="2">
+            <item description="not supported" value="0" />
+            <item description="1 sub telegram" value="1" />
+            <item description="2 sub telegram" value="2" />
+            <item description="3 sub telegram" value="2" />
+          </enum>
+        </data>
+      </profile>
+    </profiles>
   </telegram>
   <telegram rorg="0xD2" type="VLD" description="VLD Telegram">
     <profiles func="0x01" description="Electronic switches and dimmers with Energy Measurement and Local Control">
