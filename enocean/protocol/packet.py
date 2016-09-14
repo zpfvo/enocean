@@ -200,6 +200,10 @@ class Packet(object):
             Packet.logger.warning('Replacing destination with broadcast address.')
             destination = [0xFF, 0xFF, 0xFF, 0xFF]
 
+        if rorg_manufacturer is None and learn is True:
+            Packet.logger.warning('Replacing manufacturer id with default 0x7FF.')
+            rorg_manufacturer = 0x7FF
+
         # TODO: Should use the correct Base ID as default.
         #       Might want to change the sender to be an offset from the actual address?
         if sender is None:
