@@ -874,8 +874,6 @@
         </data>
       </profile>
     </profiles>
-<<<<<<< HEAD
-=======
     <profiles func="0x38" description="Central Command">
       <profile type="0x08" description="Gateway">
         <command description="Command ID" shortcut="CMD" offset="0" size="8">
@@ -956,7 +954,6 @@
         </data>
       </profile>
     </profiles>
->>>>>>> 3aabb74... Add EEP A5-38-08 Switching command
   </telegram>
   <telegram rorg="0xD2" type="VLD" description="VLD Telegram">
     <profiles func="0x01" description="Electronic switches and dimmers with Energy Measurement and Local Control">
