@@ -1,5 +1,8 @@
 # -*- encoding: utf-8 -*-
-from __future__ import print_function, unicode_literals, division, absolute_import
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
+import numbers
 
 
 def get_bit(byte, bit):
@@ -29,7 +32,7 @@ def from_bitarray(data):
 
 def to_hex_string(data):
     ''' Convert list of integers to a hex string, separated by ":" '''
-    if isinstance(data, int):
+    if isinstance(data, numbers.Integral):
         return '%02X' % data
     return ':'.join([('%02X' % o) for o in data])
 
