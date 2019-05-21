@@ -865,6 +865,124 @@
           </enum>
         </data>
       </profile>
+      <profile description="Harvesting-powered actuator with local temperature offset control (BI-DIR)" type="0x06">
+        <data direction="1">
+          <value shortcut="CV" description="Current Value" offset="0" size="8" unit="%">
+            <range>
+              <min>0</min>
+              <max>100</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>100</max>
+            </scale>
+          </value>
+          <enum shortcut="LOM" description="Local Offset Mode " offset="8" size="1">
+            <item description="LO is relative" value="0" />
+            <item description="LO is absolute" value="1" />
+          </enum>
+          <value shortcut="LO" description="Local Offset RAW" offset="9" size="7" unit="">
+            <range>
+              <min>0</min>
+              <max>127</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>127</max>
+            </scale>
+          </value>
+          <value shortcut="TMP" description="Temperature" offset="16" size="8" unit="°C">
+            <range>
+              <min>0</min>
+              <max>80</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>160</max>
+            </scale>
+          </value>
+          <enum shortcut="TSL" description="Temperature Selection" offset="24" size="1">
+            <item description="Ambient sensor temp" value="0" />
+            <item description="Feed sensor temperature" value="1" />
+          </enum>
+          <enum shortcut="ENIE" description="Energy input enabled" offset="25" size="1">
+            <item description="false" value="0" />
+            <item description="true" value="1" />
+          </enum>
+          <enum shortcut="ES" description="Energy storage sufficiently charged" offset="26" size="1">
+            <item description="Low, almost discharged" value="0" />
+            <item description="Sufficiently charged" value="1" />
+          </enum>
+          <enum shortcut="DWO" description="Window open detection" offset="27" size="1">
+            <item description="No open window detected" value="0" />
+            <item description="Open window detected" value="1" />
+          </enum>
+          <enum shortcut="RCE" description="Radio Com Error" offset="29" size="1">
+            <item description="Radio communication is stable" value="0" />
+            <item description="Six or more consecutive radio communication errors have occurred" value="1" />
+          </enum>
+          <enum shortcut="RSS" description="Radio Signal Strength" offset="30" size="1">
+            <item description="Radio signal is strong" value="0" />
+            <item description="Radio signal is weak" value="1" />
+          </enum>
+          <enum shortcut="ACO" description="Actuator obstructed" offset="31" size="1">
+            <item description="Actuator working correctly" value="0" />
+            <item description="Actuator is blocked" value="1" />
+          </enum>
+        </data>
+        <data direction="2">
+          <value shortcut="SP" description="Valve Position" offset="0" size="8" unit="%">
+            <range>
+              <min>0</min>
+              <max>100</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>100</max>
+            </scale>
+          </value>
+          <value shortcut="TMP" description="Temperature from RCU" offset="8" size="8" unit="°C">
+            <range>
+              <min>0</min>
+              <max>160</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>40</max>
+            </scale>
+          </value>
+          <enum shortcut="REF" description="Execute reference-run" offset="16" size="1">
+            <item description="Normal operation" value="0" />
+            <item description="Reference-run and Maintenance Interval" value="1" />
+          </enum>
+          <enum shortcut="RFC" description="RF Communication interval" offset="17" size="3">
+            <item description="AUTO" value="0" />
+            <item description="2 minutes" value="1" />
+            <item description="5 minutes" value="2" />
+            <item description="10 minutes" value="3" />
+            <item description="20 minutes" value="4" />
+            <item description="30 minutes" value="5" />
+            <item description="60 minutes" value="6" />
+            <item description="120 minutes" value="7" />
+          </enum>
+          <enum shortcut="SB" description="Summer bit, Reduction of energy consumption" offset="20" size="1">
+            <item description="Normal operation" value="0" />
+            <item description=" Summer mode with 8h radio duty cycle" value="1" />
+          </enum>
+          <enum shortcut="SPS" description="Set point selection" offset="21" size="1">
+            <item description="Valve position mode" value="0" />
+            <item description="Temperature set point" value="1" />
+          </enum>
+          <enum shortcut="TSL" description="Temperature requested from the actuator" offset="22" size="1">
+            <item description="false" value="0" />
+            <item description="true" value="1" />
+          </enum>
+          <enum shortcut="SBY" description="Standby" offset="23" size="1">
+            <item description="Normal operation" value="0" />
+            <item description="Standby" value="1" />
+          </enum>
+        </data>
+      </profile>
     </profiles>
     <profiles func="0x12" description="Atomated Meter Reading (AMR)">
       <profile type="0x01" description="Electricity">
