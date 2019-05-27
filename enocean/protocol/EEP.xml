@@ -966,8 +966,8 @@
             <item description="120 minutes" value="7" />
           </enum>
           <enum shortcut="SB" description="Summer bit, Reduction of energy consumption" offset="20" size="1">
-            <item description="Normal operation" value="0" />
-            <item description=" Summer mode with 8h radio duty cycle" value="1" />
+            <item description="false" value="0" />
+            <item description="true" value="1" />
           </enum>
           <enum shortcut="SPS" description="Set point selection" offset="21" size="1">
             <item description="Valve position mode" value="0" />
