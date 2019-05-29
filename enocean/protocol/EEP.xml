@@ -881,14 +881,14 @@
             <item description="LO is relative" value="0" />
             <item description="LO is absolute" value="1" />
           </enum>
-          <value shortcut="LO" description="Local Offset RAW" offset="9" size="7" unit="">
+          <value shortcut="LO" description="Local Offset" offset="9" size="7" unit="°C">
             <range>
               <min>0</min>
-              <max>127</max>
+              <max>80</max>
             </range>
             <scale>
               <min>0</min>
-              <max>127</max>
+              <max>40</max>
             </scale>
           </value>
           <value shortcut="TMP" description="Temperature" offset="16" size="8" unit="°C">
