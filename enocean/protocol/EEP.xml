@@ -1200,8 +1200,8 @@
             </scale>
           </value>
           <enum shortcut="BSP" description="Blind/shutter pos." offset="16" size="8">
-            <item description="Closed" value="0" />
-            <item description="Open" value="1" />
+            <item description="Closing" value="2" />
+            <item description="Opening" value="1" />
             <rangeitem description="Unspecified" start="2" end="255" />
           </enum>
           <enum shortcut="BBL" description="Blind blocked status" offset="24" size="8">
