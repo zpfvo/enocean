@@ -1,13 +1,16 @@
 # -*- encoding: utf-8 -*-
-from __future__ import print_function, unicode_literals, division, absolute_import
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
 import logging
 from collections import OrderedDict
 
 import enocean.utils
 from enocean.protocol import crc8
+from enocean.protocol.constants import (DB0, DB1, DB2, DB3, DB4, DB6, PACKET,
+                                        PARSE_RESULT, RORG)
 from enocean.protocol.eep import EEP
-from enocean.protocol.constants import PACKET, RORG, PARSE_RESULT, DB0, DB1, DB2, DB3, DB4, DB6
-from enocean.utils import to_bitarray, from_bitarray
+from enocean.utils import from_bitarray, to_bitarray
 
 
 def set_bits(offset, size, value, bitarray):
@@ -384,6 +387,8 @@ class RadioPacket(Packet):
                         self._bit_data[DB2.BIT_2:DB0.BIT_7])
                     self.logger.debug('learn received, EEP detected, RORG: 0x%02X, FUNC: 0x%02X, TYPE: 0x%02X, Manufacturer: 0x%02X' % (
                         self.rorg, self.rorg_func, self.rorg_type, self.rorg_manufacturer))
+        if self.rorg in [RORG.GP_SD, RORG.GP_CD, RORG.GP_TI, RORG.GP_TR]:
+            self.logger.warn('GP Packet received, currently not handled yet')
 
         return super(RadioPacket, self).parse()
 
