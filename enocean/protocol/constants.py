@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
-from __future__ import print_function, unicode_literals, division, absolute_import
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
 from enum import IntEnum
 
 
@@ -42,6 +44,10 @@ class RORG(IntEnum):
     BS1 = 0xD5
     BS4 = 0xA5
     VLD = 0xD2
+    GP_TI = 0xB0
+    GP_TR = 0xB1
+    GP_CD = 0xB2
+    GP_SD = 0xB3
     MSC = 0xD1
     ADT = 0xA6
     SM_LRN_REQ = 0xC6
