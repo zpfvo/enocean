@@ -1335,20 +1335,20 @@
             <item description="on" value="1" />
           </enum>
 
-          <enum description="Channel 3 status" shortcut="C1" offset="2" size="1">
+          <enum description="Channel 3 status" shortcut="C3" offset="2" size="1">
             <item description="off" value="0" />
             <item description="on" value="1" />
           </enum>
-          <enum description="Channel 4 status" shortcut="C2" offset="3" size="1">
+          <enum description="Channel 4 status" shortcut="C4" offset="3" size="1">
             <item description="off" value="0" />
             <item description="on" value="1" />
           </enum>
 
-          <enum description="Channel 5 status" shortcut="C1" offset="4" size="1">
+          <enum description="Channel 5 status" shortcut="C5" offset="4" size="1">
             <item description="off" value="0" />
             <item description="on" value="1" />
           </enum>
-          <enum description="Channel 6 status" shortcut="C2" offset="5" size="1">
+          <enum description="Channel 6 status" shortcut="C6" offset="5" size="1">
             <item description="off" value="0" />
             <item description="on" value="1" />
           </enum>
