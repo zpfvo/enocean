@@ -1297,4 +1297,33 @@
       </profile>
     </profiles>
   </telegram>
+  <telegram rorg="0xB2" type="GP_CD" description="General Profile Telegram">
+    <profiles func="0x00" description="Afriso Room Controller">
+      <profile type="0x01" description="Afriso Room Controller 2 Kanal">
+        <data>
+          <enum description="Channel 1 status" shortcut="C1" offset="0" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+          <enum description="Channel 2 status" shortcut="C2" offset="1" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+          <enum description="Type" shortcut="TY" offset="2" size="2">
+            <item description="receive" value="0" />
+            <item description="heartbeat" value="1" />
+            <item description="change" value="2" />
+          </enum>
+          <enum description="Channel 1 emergency status" shortcut="E1" offset="4" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+          <enum description="Channel 2 emergency status" shortcut="E2" offset="5" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+        </data>
+      </profile>
+    </profiles>
+  </telegram>
 </telegrams>

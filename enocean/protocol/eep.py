@@ -1,11 +1,13 @@
 # -*- encoding: utf-8 -*-
-from __future__ import print_function, unicode_literals, division, absolute_import
-import os
+from __future__ import (absolute_import, division, print_function,
+                        unicode_literals)
+
 import logging
+import os
 from collections import OrderedDict
-from bs4 import BeautifulSoup
 
 import enocean.utils
+from bs4 import BeautifulSoup
 from enocean.protocol.constants import RORG
 
 
@@ -53,7 +55,7 @@ class EEP(object):
         offset = int(target['offset'])
         size = int(target['size'])
         for digit in range(size):
-            bitarray[offset+digit] = (raw_value >> (size-digit-1)) & 0x01 != 0
+            bitarray[offset + digit] = (raw_value >> (size - digit - 1)) & 0x01 != 0
         return bitarray
 
     @staticmethod
@@ -88,7 +90,8 @@ class EEP(object):
         raw_value = self._get_raw(source, bitarray)
 
         # Find value description.
-        value_desc = source.find('item', {'value': str(raw_value)}) or self._get_rangeitem(source, raw_value)
+        value_desc = source.find('item', {'value': str(raw_value)}
+                                 ) or self._get_rangeitem(source, raw_value)
 
         return {
             source['shortcut']: {
@@ -168,7 +171,8 @@ class EEP(object):
         profile = self.telegrams[eep_rorg][rorg_func][rorg_type]
 
         if eep_rorg == RORG.VLD:
-            # For VLD; multiple commands can be defined, with the command id always in same location (per RORG-FUNC-TYPE).
+            # For VLD; multiple commands can be defined, with the command id always in
+            # same location (per RORG-FUNC-TYPE).
             eep_command = profile.find('command', recursive=False)
             # If commands are not set in EEP, or command is None,
             # get the first data as a "best guess".

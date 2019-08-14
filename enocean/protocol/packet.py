@@ -387,9 +387,12 @@ class RadioPacket(Packet):
                         self._bit_data[DB2.BIT_2:DB0.BIT_7])
                     self.logger.debug('learn received, EEP detected, RORG: 0x%02X, FUNC: 0x%02X, TYPE: 0x%02X, Manufacturer: 0x%02X' % (
                         self.rorg, self.rorg_func, self.rorg_type, self.rorg_manufacturer))
-        if self.rorg in [RORG.GP_SD, RORG.GP_CD, RORG.GP_TI, RORG.GP_TR]:
-            self.logger.warn('GP Packet received, currently not handled yet')
-
+        if self.rorg in [RORG.GP_SD, RORG.GP_CD]:
+            self.logger.debug('GP Data Packet received')
+        if self.rorg == RORG.GP_TI:
+            self.logger.debug('GP teach-in received')
+        if self.rorg == RORG.GP_TR:
+            self.logger.debug('GP teach-in response received')
         return super(RadioPacket, self).parse()
 
 
