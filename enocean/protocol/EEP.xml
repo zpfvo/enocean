@@ -1324,6 +1324,65 @@
           </enum>
         </data>
       </profile>
+      <profile type="0x02" description="Afriso Room Controller 6 Kanal">
+        <data>
+          <enum description="Channel 1 status" shortcut="C1" offset="0" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+          <enum description="Channel 2 status" shortcut="C2" offset="1" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+
+          <enum description="Channel 3 status" shortcut="C1" offset="2" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+          <enum description="Channel 4 status" shortcut="C2" offset="3" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+
+          <enum description="Channel 5 status" shortcut="C1" offset="4" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+          <enum description="Channel 6 status" shortcut="C2" offset="5" size="1">
+            <item description="off" value="0" />
+            <item description="on" value="1" />
+          </enum>
+          <enum description="Type" shortcut="TY" offset="6" size="2">
+            <item description="receive" value="0" />
+            <item description="heartbeat" value="1" />
+            <item description="change" value="2" />
+          </enum>
+          <enum description="Channel 1 emergency status" shortcut="E1" offset="8" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+          <enum description="Channel 2 emergency status" shortcut="E2" offset="9" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+          <enum description="Channel 3 emergency status" shortcut="E3" offset="10" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+          <enum description="Channel 4 emergency status" shortcut="E4" offset="11" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+          <enum description="Channel 5 emergency status" shortcut="E5" offset="12" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+          <enum description="Channel 6 emergency status" shortcut="E6" offset="13" size="1">
+            <item description="normal mode" value="0" />
+            <item description="emergency mode" value="1" />
+          </enum>
+        </data>
+      </profile>
     </profiles>
   </telegram>
 </telegrams>
