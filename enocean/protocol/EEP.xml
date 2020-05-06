@@ -1213,6 +1213,40 @@
           </enum>
         </data>
       </profile>
+      <profile type="0x01" description="Thermokon SR65 3AI">
+        <data>
+          <value shortcut="DI3" description="Data Input 3 linear" offset="0" size="8" unit="V">
+            <range>
+              <min>0</min>
+              <max>255</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>10</max>
+            </scale>
+          </value>
+          <value shortcut="DI2" description="Data Input 2 linear" offset="8" size="8" unit="V">
+            <range>
+              <min>0</min>
+              <max>255</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>10</max>
+            </scale>
+          </value>
+         <value shortcut="DI1" description="Data Input 1 linear" offset="16" size="8" unit="V">
+            <range>
+              <min>0</min>
+              <max>255</max>
+            </range>
+            <scale>
+              <min>0</min>
+              <max>10</max>
+            </scale>
+          </value>
+        </data>
+      </profile>
     </profiles>
   </telegram>
   <telegram rorg="0xD2" type="VLD" description="VLD Telegram">
