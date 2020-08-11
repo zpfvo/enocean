@@ -72,7 +72,8 @@
       <profile type="0x01" description="Eltako FSM61 Leakage Sensor">
         <data>
           <enum description="Water Sensor" shortcut="WAS" offset="0" size="8">
-            <rangeitem description="not specified" start="0" end="79" />
+            <item description="Water no longer detected" value="0" />
+            <rangeitem description="not specified" start="1" end="79" />
             <item description="Water detected" value="80" />
             <rangeitem description="not specified" start="81" end="255" />
           </enum>

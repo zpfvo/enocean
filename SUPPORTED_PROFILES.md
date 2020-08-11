@@ -64,7 +64,8 @@ All profiles (should) correspond to the official [EEP](http://www.enocean-allian
 
 |shortcut|description                                       |type    |values                                                                |
 |--------|--------------------------------------------------|--------|----                                                                  |
-|WAS     |Water Sensor                                      |enum    |0-79 - not specified                                                  |
+|WAS     |Water Sensor                                      |enum    |0 - Water no longer detected                                          |
+|        |                                                  |        |1-79 - not specified                                                  |
 |        |                                                  |        |80 - Water detected                                                   |
 |        |                                                  |        |81-255 - not specified                                                |
 |T21     |T21                                               |status  |                                                                      |
