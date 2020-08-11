@@ -60,6 +60,17 @@ All profiles (should) correspond to the official [EEP](http://www.enocean-allian
 |NU      |NU                                                |status  |                                                                      |
 
 
+##### RORG 0xF6 - FUNC 0xFF - TYPE 0x01 - Eltako FSM61 Leakage Sensor
+
+|shortcut|description                                       |type    |values                                                                |
+|--------|--------------------------------------------------|--------|----                                                                  |
+|WAS     |Water Sensor                                      |enum    |0-79 - not specified                                                  |
+|        |                                                  |        |80 - Water detected                                                   |
+|        |                                                  |        |81-255 - not specified                                                |
+|T21     |T21                                               |status  |                                                                      |
+|NU      |NU                                                |status  |                                                                      |
+
+
 
 ### 1BS Telegram (0xD5)
 ##### RORG 0xD5 - FUNC 0x00 - TYPE 0x01 - Single Input Contact
